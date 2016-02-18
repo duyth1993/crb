@@ -11,6 +11,7 @@ module ScheduleJson
       room_color: room_color,
       repeat_id: repeat_id,
       google_link: google_link,
+      google_event_id: google_event_id,
       creator: creator,
       members: members,
       attendee: attendee

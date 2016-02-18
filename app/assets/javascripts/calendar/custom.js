@@ -11,6 +11,7 @@ $(document).ready(function() {
   var EventPreviewTitle = $("#event-preview-popup .event-title");
   var EventPreviewDetailLink = $("#event-preview-popup .eb-details-link");
   var EventPreviewActionLink = $("#event-preview-popup .eb-action-link");
+  var EventPreviewSyncLink = $("#event-preview-popup .sync-single-event");
   var EventNewForm = $("form#new_schedule");
   var EventLink = $(".link-google");
   var EventCreateby = $(".event-createby");
@@ -103,6 +104,7 @@ $(document).ready(function() {
                 color: color,
                 repeat_id: schedule.repeat_id,
                 link: schedule.google_link,
+                google_event_id: schedule.google_event_id,
                 creator: schedule.creator,
                 attendee: schedule.attendee,
                 members: schedule.members
@@ -278,6 +280,12 @@ $(document).ready(function() {
         num ++;
       });
     }
+
+    console.log(calEvent.google_event_id == null);
+    if(typeof calEvent.google_event_id === "undefined") {
+      EventPreviewSyncLink.removeClass("hidden");
+    }
+
     var subMember = members.slice(0, members.search("<br/>"))
 
     if(calEvent.creator){
